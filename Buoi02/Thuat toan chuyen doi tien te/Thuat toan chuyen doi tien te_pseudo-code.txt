@@ -1,0 +1,6 @@
+Begin
+    Input usd
+    Input tigia=24000
+    vnd= usd*tigia
+    Display vnd
+End

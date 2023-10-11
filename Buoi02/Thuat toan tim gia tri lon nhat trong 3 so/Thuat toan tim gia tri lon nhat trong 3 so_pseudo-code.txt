@@ -1,0 +1,31 @@
+///////////////////////////////// Cach1
+Begin
+    Input a
+    Input b
+    Input c
+IF (a>b)
+   IF (a>c)    
+      Display a
+   ELSE 
+      Display c
+ELSE
+   IF (b>c)    
+      Display b
+   ELSE 
+      Display c
+End
+
+///////////////////////////////// Cach2
+
+Begin
+    Input a
+    Input b
+    Input c
+IF (a>b) AND (a>c)  
+   Display a
+ELSE 
+   IF (b>c)
+      Display b
+   ELSE 
+      Display c
+End
