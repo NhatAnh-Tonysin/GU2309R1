@@ -10,7 +10,7 @@ namespace BT_All
     {
         static void Main(string[] args)
         {
-            BT09();
+            BT05();
             Console.ReadKey();
         }
 
@@ -21,6 +21,7 @@ namespace BT_All
         input:
             Console.Write("Enter a number: ");
             int a = int.Parse(Console.ReadLine());
+
             bool check = true;
             int i;
 
@@ -151,7 +152,28 @@ namespace BT_All
         }
         private static void BT05()
         {
-            //Nhập vào 1 số nguyên n, xuất ra n!
+            //Nhập vào 1 số nguyên n, xuất ra n!(n giai thừa)
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
+
+        start:
+
+            Console.WriteLine("\nTính giai thừa của N\n");
+            Console.Write("Enter number N: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int x = 1;
+            int i = 1;
+
+            while (i <= n)
+            {
+                x = x * i;
+                i++;
+            }
+
+            Console.WriteLine("Giai thừa của N: " + x);
+
+            goto start;
         }
         private static void BT06()
         {
@@ -266,7 +288,7 @@ namespace BT_All
 
             while (m <= n)
             {
-                double i = 1 / Math.Pow(m, 3);
+                double i = 1.0 / Math.Pow(m, 3);
                 Console.Write("1/" + m + "^3 ");
                 x = x + i;
                 m++;
@@ -380,7 +402,96 @@ namespace BT_All
         }
         private static void BT10()
         {
+            //Nhập vào 3 số nguyên dương N,M,K. Kiểm tra tổng các chữ số của N cộng với chữ số đầu tiên của M có bằng K hay không?
+            //Nếu có xuất Yes ngược lại xuất No.
 
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
+
+        start:
+
+            Console.WriteLine("\nSo Sánh tổng các chữ số của N + số M với số K (mỗi số đều lớn hơn 0 và tối đa 4 chữ số)\n");
+
+            #region 3 Numbers
+            int n;
+            int m;
+            int k;
+
+        inputn:
+            Console.Write("Enter number N: ");
+            if (int.TryParse(Console.ReadLine(), out n) && n > 0 && n < 10000)
+            { }
+            else
+            {
+                Console.WriteLine("\nPlease enter number >0 and < 10000");
+                goto inputn;
+            }
+
+        inputm:
+            Console.Write("Enter number M: ");
+            if (int.TryParse(Console.ReadLine(), out m) && m > 0 && m < 10000)
+            { }
+            else
+            {
+                Console.WriteLine("\nPlease enter number >0 and < 10000");
+                goto inputm;
+            }
+
+        inputk:
+            Console.Write("Enter number K: ");
+            if (int.TryParse(Console.ReadLine(), out k) && k > 0 && k < 10000)
+            { }
+            else
+            {
+                Console.WriteLine("\nPlease enter number >0 and < 10000");
+                goto inputk;
+            }
+            #endregion 3 Numbers
+
+            #region Digit total of N
+            int ng = n / 1000;
+            int tr = (n / 100) % 10;
+            int ch = (n / 10) % 10;
+            int dv = n % 10;
+            int total_d_N = ng + tr + ch + dv;
+
+            Console.Write("\nNumbers of N: ");
+            Console.Write(ng + "_");
+            Console.Write(tr + "_");
+            Console.Write(ch + "_");
+            Console.Write(dv);
+            Console.Write("\nDigits total of N: " + total_d_N + "\n");
+            #endregion Digit total of N
+
+            #region First digit of M
+            //công thức này có thể tìm được số đầu tiên của chuỗi số mà không cần giới hạn số lượng chữ số
+
+            int x = 1;
+            int firstm = -1;
+
+            while (m >= x)
+            {
+                firstm = (m / x) % 10;
+                x *= 10;
+            }
+
+            Console.Write("First digit of M: " + firstm + "\n");
+
+            int totalnm = total_d_N + firstm;
+
+            #endregion First digit of M
+
+            if (totalnm == k)
+            {
+                Console.Write("\nYES\n");
+            }
+            else
+            {
+                Console.Write("\nNO\n");
+            }
+
+
+            goto start;
         }
     }
 }
