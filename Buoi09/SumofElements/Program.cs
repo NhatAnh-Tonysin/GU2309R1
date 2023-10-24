@@ -28,6 +28,8 @@ namespace SumofElements
             }
             Console.WriteLine(total.ToString());
 
+            Console.WriteLine(numbers.Sum());
+
             Console.ReadKey();
         }
     }
