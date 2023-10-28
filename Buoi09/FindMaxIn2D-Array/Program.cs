@@ -31,7 +31,7 @@ namespace FindMaxIn2D_Array
                     int item = rd.Next(10, 100);
                     foreach (int temp in a)
                     {
-                        if (temp == item || temp > max)
+                        if (temp == item)
                             item = rd.Next(10, 100);
                     }
                     a[i, j] = item;
@@ -60,7 +60,7 @@ namespace FindMaxIn2D_Array
                 int iM = pos / c;
                 int jM = pos % c;
                 if (a[iM, jM] == max)
-                Console.Write(" at position a[{0},{1}], row: {2},column: {3}",iM,jM,(iM + 1),(jM + 1));
+                    Console.Write(" at position a[{0},{1}], row: {2},column: {3}", iM, jM, (iM + 1), (jM + 1));
             }
             #endregion Xuất số lớn nhất của mảng và vị trí của nó
 
