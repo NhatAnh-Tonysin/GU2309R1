@@ -11,22 +11,51 @@ namespace MineSweeper
         static void Main(string[] args)
         {
             #region Map gốc
-            string[,] map = {
-                                {"*", ".", ".", "."},
-                                {".", ".", ".", "."},
-                                {".", ".", "*", "."},
-                                {".", ".", ".", "."}
-                            }; //Biến mảng map gốc
+            Console.WriteLine("Create New Map");
+            Console.Write("Enter map size: ");
+            int s = int.Parse(Console.ReadLine());
+
+            string[,] map = new string[s, s]; //Biến mảng map gốc
+            string dot = ".";
+            string star = "*";
 
             Console.Write("Map: ");
-            for (int row = 0; row < map.GetLength(0); row++)
+            for (int row = 0; row < s; row++)
             {
                 Console.WriteLine("\n");
-                for (int column = 0; column < map.GetLength(1); column++)
+                for (int column = 0; column < s; column++)
                 {
-                    Console.Write(map[row, column] + "  ");
+                    map[row, column] = dot;
+                    Console.Write(map[row, column] + "   ");
                 }
             }
+
+            int mineN = s * 3 / 5; //Biến số lượng mine được phép cài vào map
+
+            Console.Write("\nSet {0} mines at: \n", mineN);
+
+            for (int nhap = 1; nhap <= mineN; nhap++)
+            {
+                Console.Write("row: ");
+                int r = int.Parse(Console.ReadLine());  //Nhập địa chỉ dòng theo vùng nhìn
+                Console.Write("column: ");
+                int c = int.Parse(Console.ReadLine());  //Nhập địa chỉ cột theo vùng nhìn
+
+                map[r - 1, c - 1] = star;                   //r-1,c-1 để trỏ về địa chỉ thực của mảng
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+
+            //In mảng sau khi đã set mine
+            Console.Write("Map: ");
+            for (int row = 0; row < s; row++)
+            {
+                Console.WriteLine("\n");
+                for (int column = 0; column < s; column++)
+                    Console.Write(map[row, column] + "   ");
+            }
+
             Console.WriteLine();
             #endregion Map gốc
 
@@ -58,7 +87,7 @@ namespace MineSweeper
 
                     else
                     {
-                        int[,] NB = { {y - 1, x - 1}, {y - 1, x}, {y - 1, x + 1},{y, x - 1},{y, x + 1},{y + 1, x - 1},{y + 1, x}, {y + 1, x + 1},}; //Biến mảng tập hợp các phần tử xung quanh phần tử được dò(8 ô xung quanh)
+                        int[,] NB = { { y - 1, x - 1 }, { y - 1, x }, { y - 1, x + 1 }, { y, x - 1 }, { y, x + 1 }, { y + 1, x - 1 }, { y + 1, x }, { y + 1, x + 1 }, }; //Biến mảng tập hợp các phần tử xung quanh phần tử được dò(8 ô xung quanh)
 
                         int minesAround = 0; // Biến đếm số lượng mìn/ dấu "*"
 
@@ -88,12 +117,10 @@ namespace MineSweeper
                 for (int x = 0; x < MAP_WIDTH; x++)
                 {
                     String currentCellReport = mapReport[y, x];
-                    Console.Write(currentCellReport + "  ");
+                    Console.Write(currentCellReport + "   ");
                 }
             }
             #endregion In ra map kết quả sau khi dò từ map gốc
-
-
 
 
 
