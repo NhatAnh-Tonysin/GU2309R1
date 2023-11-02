@@ -30,7 +30,6 @@ namespace TemperatureConversion
                 Console.WriteLine("2. Celsius to Fahrenheit");
                 Console.WriteLine("0. Exit ");
                 Console.Write("Select Function: ");
-                //choice = int.Parse(Console.ReadLine());
                 if (int.TryParse(Console.ReadLine(), out choice))
                 {
                     switch (choice)
