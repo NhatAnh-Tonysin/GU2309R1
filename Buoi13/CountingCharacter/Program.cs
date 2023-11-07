@@ -16,7 +16,11 @@ namespace CountingCharacter
 
             Console.ReadKey();
         }
-
+        /// <summary>
+        /// Hàm đếm ký tự trong mảng
+        /// In ra số lượng ký tự
+        /// </summary>
+        /// <param name="kt"></param>
         static void DemKT(ArrayList kt)
         {
             ArrayList newkt = new ArrayList();  // tạo mảng động mới để lọc những ký tự trùng trong mảng được nhập
@@ -40,6 +44,10 @@ namespace CountingCharacter
             }
         }
 
+        /// <summary>
+        /// Hàm nhập chuỗi, gán chuỗi cho mảng
+        /// </summary>
+        /// <returns></returns>
         static ArrayList NhapMang()
         {
             Console.WriteLine("Enter a string: ");
