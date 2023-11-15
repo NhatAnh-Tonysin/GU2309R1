@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1E1D8CE-2E11-419F-A9CC-6E0D4B888F28}</ProjectGuid>
+    <ProjectGuid>{BA20AE88-A9CA-4352-B397-5657C6B2D282}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RectangleClass</RootNamespace>
-    <AssemblyName>RectangleClass</AssemblyName>
+    <RootNamespace>Fan</RootNamespace>
+    <AssemblyName>Fan</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Fan.cs" />
+    <Compile Include="Fan_Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rectangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
