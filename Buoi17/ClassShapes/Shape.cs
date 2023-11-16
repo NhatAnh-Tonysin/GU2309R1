@@ -74,6 +74,7 @@ namespace ClassShapes
             return "A Rectangle with width =" + GetWidth() + " and length =" + GetLength() + ", which is a subclass of " + base.ToString();
         }
     }
+
     public class Square : Rectangle
     {
         public Square() { }
