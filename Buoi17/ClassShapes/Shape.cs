@@ -16,7 +16,6 @@ namespace ClassShapes
         public void SetColor(String color) { this.color = color; }
         public bool IsFilled() { return filled; }
         public void SetFilled(bool filled) { this.filled = filled; }
-
         public Shape() { }
         public Shape(String color, bool filled)
         {
@@ -30,7 +29,7 @@ namespace ClassShapes
         }
     }
 
-    public class Circle : Shape
+    public class Circle : Shape, Resizeable
     {
         private double radius = 1.0;
 
@@ -52,9 +51,13 @@ namespace ClassShapes
         {
             return "A Circle with radius =" + GetRadius() + ", which is a subclass of " + base.ToString();
         }
+        public void Resize(double percent)
+        {
+            radius += radius * percent;
+        }
     }
 
-    public class Rectangle : Shape
+    public class Rectangle : Shape, Resizeable, IColorable
     {
         private double width = 1.0;
         private double length = 1.0;
@@ -73,9 +76,20 @@ namespace ClassShapes
         {
             return "A Rectangle with width =" + GetWidth() + " and length =" + GetLength() + ", which is a subclass of " + base.ToString();
         }
+
+        public void Resize(double percent)
+        {
+            width += width * percent;
+            length += length * percent;
+        }
+
+        public virtual void HowToColor()
+        {
+            Console.WriteLine("Color!");
+        }
     }
 
-    public class Square : Rectangle
+    public class Square : Rectangle, Resizeable, IColorable
     {
         public Square() { }
         public Square(double side) : base(side, side) { }
@@ -90,10 +104,21 @@ namespace ClassShapes
         {
             SetLength(length);
         }
+        public double GetArea() { return GetSide() * GetSide(); }
+        public double GetPerimeter() { return 4 * GetSide(); }
         public override string ToString()
         {
             return "A Square with side =" + GetSide() + ", which is a subclass of " + base.ToString();
         }
-
+        public void Resize(double percent)
+        {
+            base.Resize(percent);
+        }
+        public void HowToColor()
+        {
+            Console.WriteLine("Color all four sides");
+        }
     }
+
+
 }
